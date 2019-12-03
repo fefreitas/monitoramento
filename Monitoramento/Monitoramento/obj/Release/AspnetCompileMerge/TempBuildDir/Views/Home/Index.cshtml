@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "ATM";
+}
+
+<script>
+
+    $(document).ready(function () {
+        $("#btnRamdon").click(function () {
+            var number = Math.floor(Math.random() * 150);
+            console.log(number);
+            $("#valor").val(number);
+        });
+    });
+
+</script>
+
+<div class="jumbotron">
+    <h1>ATM</h1>
+
+    @using (Html.BeginForm("SendNumber", "Home", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-4">
+                Valor: <input type="number" class="form-control" name="valor" id="valor" />
+            </div>
+            <div class="col-md-4">
+                <br />
+                <button type="button" class="btn btn-danger" id="btnRamdon">Gerar Número</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+            </div>
+        </div>
+    }
+
+</div>
